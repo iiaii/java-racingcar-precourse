@@ -3,12 +3,12 @@ package racinggame.domain;
 import org.assertj.core.api.ThrowableAssert.ThrowingCallable;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racinggame.exception.InvalidNameLengthException;
+import racinggame.exception.InvalidCarNameLengthException;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
-class PlayerNameTest {
+class CarNameTest {
 
     @Test
     @DisplayName("플레이어 이름 생성 - 공백인 경우")
@@ -17,11 +17,11 @@ class PlayerNameTest {
         String name = "";
 
         // when
-        ThrowingCallable throwingCallable = () -> new PlayerName(name);
+        ThrowingCallable throwingCallable = () -> new CarName(name);
 
         // then
         assertThatThrownBy(throwingCallable)
-                .isInstanceOf(InvalidNameLengthException.class);
+                .isInstanceOf(InvalidCarNameLengthException.class);
     }
 
     @Test
@@ -31,11 +31,11 @@ class PlayerNameTest {
         String name = "abcdef";
 
         // when
-        ThrowingCallable throwingCallable = () -> new PlayerName(name);
+        ThrowingCallable throwingCallable = () -> new CarName(name);
 
         // then
         assertThatThrownBy(throwingCallable)
-                .isInstanceOf(InvalidNameLengthException.class);
+                .isInstanceOf(InvalidCarNameLengthException.class);
     }
 
     @Test
@@ -45,10 +45,10 @@ class PlayerNameTest {
         String name = "abcde";
 
         // when
-        PlayerName playerName = new PlayerName(name);
+        CarName carName = new CarName(name);
 
         // then
-        assertThat(playerName.name()).isEqualTo(name);
+        assertThat(carName.name()).isEqualTo(name);
     }
 
 }
