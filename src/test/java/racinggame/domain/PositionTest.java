@@ -37,4 +37,19 @@ class PositionTest {
         assertThat(position.intValue()).isEqualTo(positionNumber);
     }
 
+    @Test
+    @DisplayName("포지션 비교")
+    public void 포지션비교() {
+        // given
+        Position zero = new Position(0);
+        Position two = new Position(2);
+        int expected = 2;
+
+        // when
+        int result = two.compareTo(zero);
+
+        // then
+        assertThat(result).isEqualTo(expected);
+    }
+
 }

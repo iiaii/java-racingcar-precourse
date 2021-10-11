@@ -29,6 +29,7 @@
 ### Position
 
 - 0 이상의 값만 허용한다 
+- 다른 Position 과 크기 비교가 가능하다
 
 
 ### MovingStrategy (RandomMovingStrategy)

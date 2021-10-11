@@ -4,7 +4,7 @@ import racinggame.exception.InvalidPositionValueException;
 
 import java.util.Objects;
 
-public class Position {
+public class Position implements Comparable<Position> {
 
     private static final int MIN_POSITION = 0;
 
@@ -50,4 +50,8 @@ public class Position {
         return Objects.hash(position);
     }
 
+    @Override
+    public int compareTo(final Position position) {
+        return this.position - position.position;
+    }
 }
