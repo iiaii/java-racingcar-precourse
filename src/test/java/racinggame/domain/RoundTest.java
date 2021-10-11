@@ -5,6 +5,9 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racinggame.exception.InvalidRoundCountException;
 
+import java.util.List;
+import java.util.function.Supplier;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
@@ -25,16 +28,19 @@ class RoundTest {
     }
 
     @Test
-    @DisplayName("라운드 생성 - 1이상의 값 입력")
-    public void 라운드생성_1이상의값() {
+    @DisplayName("라운드 반복")
+    public void 라운드반복() {
         // given
-        int roundNumber = 1;
+        Round round = new Round(3);
+        Supplier<Boolean> trueFunction = () -> true;
+        int expectedSize = 3;
 
         // when
-        Round round = new Round(roundNumber);
+        List<Boolean> result = round.repeat(trueFunction);
 
         // then
-        assertThat(round.count()).isEqualTo(roundNumber);
+        assertThat(result.size()).isEqualTo(expectedSize);
+        assertThat(result).containsExactly(true, true, true);
     }
 
 }
