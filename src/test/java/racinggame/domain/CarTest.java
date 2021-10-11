@@ -16,11 +16,11 @@ class CarTest {
 
         // when
         Car car = new Car(name);
-        Position position = car.currentPosition();
+        boolean samePosition = car.isSamePosition(expectedPosition);
 
         // then
         assertThat(car).isEqualTo(new Car(name));
-        assertThat(position).isEqualTo(expectedPosition);
+        assertThat(samePosition).isTrue();
     }
 
     @Test
@@ -49,6 +49,23 @@ class CarTest {
 
         // then
         assertThat(position).isEqualTo(expectedPosition);
+    }
+
+    @Test
+    @DisplayName("자동차 위치 비교")
+    public void 자동차위치비교() {
+        // given
+        Car car = new Car("abc");
+        Position expectedPosition = new Position(0);
+        Position notExpectedPosition = new Position(1);
+
+        // when
+        boolean samePosition = car.isSamePosition(expectedPosition);
+        boolean differentPosition = car.isSamePosition(notExpectedPosition);
+
+        // then
+        assertThat(samePosition).isTrue();
+        assertThat(differentPosition).isFalse();
     }
 
 }

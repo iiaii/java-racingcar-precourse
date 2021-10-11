@@ -21,12 +21,12 @@ public class Car {
         return position;
     }
 
-    public Position currentPosition() {
-        return position;
+    public boolean isSamePosition(final Position position) {
+        return position.equals(this.position);
     }
 
-    public String name() {
-        return carName.name();
+    public CarName carName() {
+        return carName;
     }
 
     @Override
