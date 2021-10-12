@@ -6,13 +6,9 @@ import java.util.List;
 
 public class RoundResultConsoleOutput {
 
-    private static final String ROUND_RESULT_HEAD = "실행결과";
+    private static final String ROUND_RESULT_HEAD = "\n실행결과";
     private static final String ROUND_RESULT = "%s : %s";
     private static final String MOVED_SIGN = "-";
-
-    public static void printRaceResult(final List<String> names) {
-
-    }
 
     public static void printRoundResults(final RoundResultDto roundResultDto) {
         System.out.println(ROUND_RESULT_HEAD);
