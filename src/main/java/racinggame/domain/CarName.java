@@ -12,8 +12,9 @@ public class CarName {
     private final String name;
 
     public CarName(final String name) {
-        validateCarName(name);
-        this.name = name;
+        String trimmedName = name.trim();
+        validateCarName(trimmedName);
+        this.name = trimmedName;
     }
 
     public String name() {

@@ -14,7 +14,7 @@ class CarNameTest {
     @DisplayName("플레이어 이름 생성 - 공백인 경우")
     public void 플레이어이름생성_공백() {
         // given
-        String name = "";
+        String name = " ";
 
         // when
         ThrowingCallable throwingCallable = () -> new CarName(name);
